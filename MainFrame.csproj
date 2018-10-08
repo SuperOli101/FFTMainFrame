@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51F01148-516F-46E8-A8AE-8F59AB30E4FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MainFrame</RootNamespace>
+    <AssemblyName>MainFrame</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PartProductionDB">
+      <HintPath>..\MyTest\FFTSystem\PartProductionDB.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_TestSystem\Data\DataCounter.cs" />
+    <Compile Include="_TestSystem\Data\PartProductionDBforFFT.cs" />
+    <Compile Include="_TestSystem\Test\FFT\FFT_Template.cs" />
+    <Compile Include="_TestSystem\Test\Form\FormInvokeFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormInvokeFunction.Designer.cs">
+      <DependentUpon>FormInvokeFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_TestSystem\Data\Data.cs" />
+    <Compile Include="_TestSystem\Data\DataDB.cs" />
+    <Compile Include="_TestSystem\Data\DataDBF.cs" />
+    <Compile Include="_TestSystem\Data\DataIni.cs" />
+    <Compile Include="_TestSystem\Data\DataMsg.cs" />
+    <Compile Include="_TestSystem\Data\DataReport.cs" />
+    <Compile Include="_TestSystem\Data\ObjectData.cs" />
+    <Compile Include="_TestSystem\Data\SerializerIni.cs" />
+    <Compile Include="_TestSystem\Device\Device.cs" />
+    <Compile Include="_TestSystem\Device\ObjectDevice.cs" />
+    <Compile Include="_TestSystem\Device\FFTester\FFTester.cs" />
+    <Compile Include="_TestSystem\Device\Timer\Timer.cs" />
+    <Compile Include="_TestSystem\Test\Form\FormErrorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormErrorList.Designer.cs">
+      <DependentUpon>FormErrorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormInstalRessource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormInstalRessource.Designer.cs">
+      <DependentUpon>FormInstalRessource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormMainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormMainFrame.Designer.cs">
+      <DependentUpon>FormMainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormMenuSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_TestSystem\Test\Form\FormMenuSelect.Designer.cs">
+      <DependentUpon>FormMenuSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_TestSystem\Test\ObjectTest.cs" />
+    <Compile Include="_TestSystem\Test\Test.cs" />
+    <Compile Include="_TestSystem\Test\TestStep.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_TestSystem\Test\Form\FormErrorList.resx">
+      <DependentUpon>FormErrorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_TestSystem\Test\Form\FormInstalRessource.resx">
+      <DependentUpon>FormInstalRessource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_TestSystem\Test\Form\FormInvokeFunction.resx">
+      <DependentUpon>FormInvokeFunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_TestSystem\Test\Form\FormMainFrame.resx">
+      <DependentUpon>FormMainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_TestSystem\Test\Form\FormMenuSelect.resx">
+      <DependentUpon>FormMenuSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\good.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neutral.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\run.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconScan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScanAndStart.ICO" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

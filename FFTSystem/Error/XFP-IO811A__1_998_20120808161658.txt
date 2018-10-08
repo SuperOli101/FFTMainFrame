@@ -1,0 +1,28 @@
+﻿1001|:| -----------------------------------------------------------------------------------------------
+1001|:| --- Msg-File ----------------------------------------------------------------------------------
+0001|:| Firmware Version: %s --------------------------------------------------------------------------
+0001|:| im Start 08.08.2012 16:16:57
+0001|:| Before the first Breakpoint in _SetTestStep()
+0001|:| Not defined message [General] 7
+0001|:| Not defined error code [FFT_Template_Start] 998
+0001|:| Test is canceled by operator
+0001|:| Der Objektverweis wurde nicht auf eine Objektinstanz festgelegt.
+0001|:|    bei Honeywell.Test.CFFT_Template_Start._SetTestStep() in C:\Mein\Projekte\____VCSharp\_TemplateMainFrame\FFT\MainFrame\MainFrame\_TestSystem\Test\FFT\FFT_Template.cs:Zeile 58.
+0001|:|    bei Honeywell.Test.CTestStep.Execute() in C:\Mein\Projekte\____VCSharp\_TemplateMainFrame\FFT\MainFrame\MainFrame\_TestSystem\Test\TestStep.cs:Zeile 108.
+0001|:| 
+0001|:| Not defined message [General] 14
+0001|:| ------------------------------------------------------------------------------ FFT-Result Error
+0001|:| 
+0004|:| Firmware Version: %s --------------------------------------------------------------------------
+0004|:| 
+0004|:| Not defined message [General] 14
+0004|:| ------------------------------------------------------------------------------- FFT-Result O.K.
+0004|:| 
+0000|:| Not defined message [General] 15
+0000|:| -----------------------------------------------------------------------------------------------
+0000|:| ---------------------------- Testresult: FALSE ------------------------------------------------
+0000|:| -----------------------------------------------------------------------------------------------
+0000|:| -----------------------------------------------------------------------------------------------
+0000|:|                             08.08.2012 16:16:58                                                
+0000|:|                Not defined message [General] 11                                                
+0000|:| -----------------------------------------------------------------------------------------------

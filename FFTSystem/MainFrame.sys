@@ -1,0 +1,135 @@
+﻿/***************************************************************************
+ *
+ *                          Honeywell AG, Department PT
+ *
+ ***************************************************************************
+ *
+ *	Date        : 29.07.2010
+ *	Author      : O. Gebert (OGE)
+ *	Filename    : MainFrame_FFT.sys
+ *	Language    : Visual C++ for Windows 2005
+ *	Description : 
+ *
+ ***************************************************************************
+ *	Version		Date:			History
+ *	1.00		19.07.2010		Neu Erstellung (OGE)
+ *
+ ***************************************************************************
+ */
+
+//////////////////////////////////////////////////////////////
+[Test]
+Report						= 1		//0-AUS; 1-AN Alles; 								
+Mode						= -1	//0-Aus 
+									//1-Alle Ausgabe zum Bildschirm (z.B Msg2 aus SetStepResult) 
+									//2-Mode erlaubt den Test mit offenem Deckel 
+									//-1-wie 1 nur ohne die Wahl Produktion Reparatur mode
+									//-2-wie 0 nur ohne datenbank beschreibung und ohne die Wahl Produktion Reparatur mode
+FFTMode						= 0		//0-Production
+									//1-Experten
+									//2-Engineering
+Print						= 1		// 0 - Nein 1 - Ja
+Scanner						= 1		// 0 - Nein; 1 - Ja; -1 - Nein(Eingabe per Tastatur)
+Password					= centra2
+LengthScroll				= 95
+NumberOfTestRun				= 1		//Anzahl von Testläufe nach dem Teststart. 0-unendlich
+MenuSorted					= 0		//Sortiert die Einträge in der Auswahlmenü
+
+
+[DB]
+WriteToDB					= 0	//0-Aus 1-An
+Report						= 0
+ServerName					= .\SQLEXPRESS 
+DataBaseName				= PartProductionDB
+Login						=  // "" - Windows Authentication
+Password					=  // "" - Windows Authentication
+Department					= RS
+SiteCode					= GE51
+SoftwareCategory			= FFT
+DescriptionSoftwareCategory = Final Function Test
+DescriptionFFTSoftware		= FFT für XL12 und SmartIO
+OrderName					= //MSE1 //Factory //MSE1 //Der Auftrag wird nicht angeleg, wenn nichts angegeben.
+													//Sonst fortlaufend nummeriert und mit @@ als Trennzeiche zwischen Namen und Nummerierung
+													//In [Test] -> FFTMode == 0 beim angelegten OrderName wird der Auftrag mit der Stückzahl 0 automatisch erstellt (OrderName + Fortlaufende nummerierung)
+													//In [Test] -> FFTMode != 0 beim angelegten OrderName wird der Auftrag nach dem kleinen Dialog erstellt (OrderName + Fortlaufende nummerierung)
+													//							Mit dem Dialog kann man wählen, ob der Auftrag neueerstellt oder letzt vorhandener benutzt werden soll und Stückzahl festlegen
+[Directory]
+DirectoryOfErrorFile	= Error //Ohne Eintrag wird die ReportDatei im Fehlerfall nicht extra im Fehlerverzeichnis geschrieben
+//////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////
+//Testreihen			={} Ausführen wie					=  Variantenname			=	Auswahlmenüeintrag					= Kurzname
+[Menu]
+SEQUENCING_XFP-IO811A	={}								=	VAR_FKT_XFP-IO811A		=	"XFP-IO811A"						=	" "			//1
+SEQUENCING_XFP-IO812A	={}	SEQUENCING_XFP-IO811A		=	VAR_FKT_XFP-IO812A		=	"XFP-IO812A"						=	" "			//2
+SEQUENCING_XFP-IO813A	={}								=	VAR_FKT_XFP-IO813A		=	"XFP-IO813A"						=	" "			//3
+SEQUENCING_XFP-IO814A	={}								=	VAR_FKT_XFP-IO814A		=	"XFP-IO814A"						=	" "			//4
+
+//Testschrittcode					Ausführen automatisch
+[SEQUENCING_XFP-IO811A]{}
+FFT_Template_Start
+FFT_Template_Test1
+FFT_Template_Finish
+
+
+[SEQUENCING_XFP-IO813A]
+FFT_Template_Start
+FFT_Template_Test1
+FFT_Template_Test2
+FFT_Template_Finish
+
+
+[SEQUENCING_XFP-IO814A]
+FFT_Template_Start
+FFT_Template_Test1
+FFT_Template_Finish
+
+
+//////////////////////////////////////////////////////////////
+
+// Nicht ändern // No change /////////////////////////////////
+//												Test abrechen	  		False -
+//												bei Errornummer   		nur dann ausführen,
+//												mit dem Komma	  		wenn Test			no Yield
+//												getrennt.FALSE	  		keine Fehler		evaluation
+//Testschrittcode						=		bei allen Err 	=	hat.				= at error number
+[TestSteps]
+FFT_Template_Start						=						=						=	//1
+FFT_Template_Test1						=						=						=	//2
+FFT_Template_Test2						=						=						=	//3
+FFT_Template_Finish						=						=						=	//4
+
+
+
+[Variants]	
+VAR_FKT_XFP-IO811A						//1
+VAR_FKT_XFP-IO812A						//2
+VAR_FKT_XFP-IO813A						//3
+VAR_FKT_XFP-IO814A						//4
+
+//////////////////////////////////////////////////////////////
+[Counter]
+// FileName Optionen
+//	%m - minute
+//	%h - Stunde
+//	%d - Tag
+//	%c - Kalenderwoche
+//	%M - Monat
+//	%y - Jahr
+//	%v - Variante
+//  %o - OS-Nummer
+FileName					= Counter\Counts_%y\Count_%c.cnt
+
+//////////////////////////////////////////////////////////////
+[Debug]
+Mode						= 1	//1-An; 0-Aus
+WriteBreakPointToScroll		= 0
+BreakPointAfterEveryError	= 0 // 1-Bei jedem Fehler wird angehalten, 0-nicht angehalten
+BreakPointError				= 1	//1-An; 0-Aus
+BreakPointError[1]			= 1:1
+//BreakPointError[2]			= 1:12
+BreakPointID				= 0	//1-An; 0-Aus
+BreakPointID[1]				= 2:1
+BreakPointID[2]				= 9:4
+BreakPointID[3]				= 9:1
+//////////////////////////////////////////////////////////////
